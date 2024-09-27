@@ -1,0 +1,99 @@
+div{
+  margin: 0;
+  padding: 0;
+  font-family: "Edu AU VIC WA NT Guides", cursive;
+  
+}
+
+/* Container Styles */
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+  
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #FFEB34; /* Bright background */
+  position: fixed;
+  height: 100%;
+  overflow-y: auto; 
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px; /* Space below sidebar title */
+  font-size: 1.5rem; /* Increase title size */
+  
+  text-align: center; /* Center-align title */
+
+}
+
+/* Profile Image */
+.rounded-circle {
+  min-width: 150px;
+  min-height: 150px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border: 5px solid #fff; /* White border around profile image */
+}
+
+/* Image Container */
+.img-con {
+  min-width: 50%; 
+  max-width: 50%;
+  margin-bottom: 20px; /* Space below image */
+}
+
+
+.main {
+  min-height: 100vh; 
+  background-image: url("/public/texture.jpg");
+  width: 100%;
+  align-items: center;
+  padding-top: 10%;
+  background-color: #f8f9fa; /* Light background for the main content */
+  transition: margin-left 0.3s ease; /* Smooth transition for sidebar toggle */
+}
+
+.main-item{
+  width: 80%;
+}
+/* Button Styles */
+.btn {
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effects */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.item{
+  font-size: 2rem;
+  text-decoration-thickness: 30px;
+  text-decoration-color: red;
+}
+/* Input Field Styles */
+.form-control {
+  border-radius: 25px; /* Rounded corners */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide sidebar on smaller screens */
+  }
+
+  .main {
+    margin-left: 0; /* Remove left margin for main content */
+    padding: 15px; /* Reduce padding on mobile */
+  }
+}
+
+.todo{
+  font-size: 10vh;
+}
+
