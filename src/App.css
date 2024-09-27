@@ -2,32 +2,27 @@ div{
   margin: 0;
   padding: 0;
   font-family: "Edu AU VIC WA NT Guides", cursive;
-  
 }
 
-/* Container Styles */
+.courier{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.welcome{
+  font-size: 8vh;
+}
+
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
   
 }
 
-/* Sidebar Styles */
 .sidebar {
-  background-color: #FFEB34; /* Bright background */
-  position: fixed;
+  
   height: 100%;
   overflow-y: auto; 
-  justify-content: center;
-  align-items: center;
-}
-
-.sidebar h2 {
-  margin-bottom: 20px; /* Space below sidebar title */
-  font-size: 1.5rem; /* Increase title size */
-  
-  text-align: center; /* Center-align title */
-
+  background-image: url("/public/bg.png");;
 }
 
 /* Profile Image */
@@ -37,63 +32,113 @@ div{
   width: 100%;
   height: auto;
   overflow: hidden;
-  border: 5px solid #fff; /* White border around profile image */
+  border: 3px solid black; 
 }
 
-/* Image Container */
 .img-con {
-  min-width: 50%; 
-  max-width: 50%;
-  margin-bottom: 20px; /* Space below image */
+  min-width: 30%; 
+  max-width: 30%;
+  margin-bottom: 20px; 
 }
 
 
 .main {
   min-height: 100vh; 
   background-image: url("/public/texture.jpg");
-  width: 100%;
-  align-items: center;
-  padding-top: 10%;
-  background-color: #f8f9fa; /* Light background for the main content */
-  transition: margin-left 0.3s ease; /* Smooth transition for sidebar toggle */
+  padding-top: 5%;
+  padding-bottom: 5%;
+  transition: margin-left 0.3s ease; 
+  overflow-wrap: break-word;
+
 }
 
 .main-item{
   width: 80%;
+
 }
-/* Button Styles */
+
 .btn {
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effects */
+  border: 3px solid black;
+  border-radius: 40px;
+  margin: 1vh;
+  animation: ease-in-out;
+  padding: 1vh;
 }
 
 .btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  background-image: url("/public/bg.png");
+  color: black;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 .item{
-  font-size: 2rem;
+
   text-decoration-thickness: 30px;
   text-decoration-color: red;
+  margin: 0.5vh;
 }
-/* Input Field Styles */
+
+.highlight{
+  font-size: 4vh;
+  text-decoration-thickness: 30px;
+  text-decoration-color: red;
+  transition: 200ms; 
+}
+.highlight:hover{
+  letter-spacing: 3px;
+  text-decoration: underline;
+  background-image: url("/public/bg.png");
+}
+
 .form-control {
-  border-radius: 25px; /* Rounded corners */
+  border-radius: 25px; 
+  background-color: yellow;
+
+ 
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .sidebar {
-    display: none; /* Hide sidebar on smaller screens */
-  }
+input{
+  border-radius: 25px; 
+  background-color: yellow;
+  border: 3px solid  black;
+}
 
-  .main {
-    margin-left: 0; /* Remove left margin for main content */
-    padding: 15px; /* Reduce padding on mobile */
-  }
+.input-group{
+  filter: drop-shadow(-2px 7px 0px #000000);
+  transition: 200ms; 
+
+}
+
+.input-group:hover{
+  transform: scale(1.1);
+}
+
+.add{
+  background-color: red;
+  border: 3px solid black;
+  border-radius: 40px;
+  margin: 1vh;
+  padding: 1vh;
+  transition: 200ms; 
+}
+
+.add:hover{
+  background-color: yellow;
 }
 
 .todo{
   font-size: 10vh;
+  font-weight: 600;
+}
+
+
+label{
+  font-size: 5vh;
+  padding: 5%;
+  margin-bottom: 1%;
 }
 

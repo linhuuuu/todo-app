@@ -1,31 +1,37 @@
 import React, { useState } from 'react';
 import TodoItem from './Item';
-import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css"
+
+//USE STATES
 function TodoApp() {
-  const [todos, setTodos] = useState([]);  // Initial state: empty todo list
-  const [newTodo, setNewTodo] = useState("");  // Initial state: empty input field
-  
+  const [todos, setTodos] = useState([]);
+  const [newTodo, setNewTodo] = useState("");
+
+  //ADD TODO
   const addTodo = () => {
     if (newTodo.trim() !== "") {
-      setTodos([...todos, { text: newTodo, completed: false }]);  // Adds new todo
-      setNewTodo("");  // Clears input field
+      setTodos([...todos, { text: newTodo, completed: false }]);
+      setNewTodo(""); //CLEAR
     }
   };
 
+  //COMPLETE TOGGLE
   const handleComplete = (index) => {
     setTodos(todos.map((todo, i) =>
       i === index ? { ...todo, completed: !todo.completed } : todo
     ));
   };
 
+  //EDIT
   const handleEdit = (index, newText) => {
     const updatedTodos = todos.map((todo, i) =>
       i === index ? { ...todo, text: newText } : todo
     );
-    setTodos(updatedTodos);
+    setTodos(updatedTodos); //UPDATE
   };
 
+  //REMOVE
   const handleRemove = (index) => {
     const updatedTodos = todos.filter((_, i) => i !== index);
     setTodos(updatedTodos);
@@ -34,75 +40,62 @@ function TodoApp() {
 
   return (
 
-<div class="container-fluid min-vh-100">
+    <div class="container-fluid min-vh-100 "> {/*CONTAINER AND FONT*/}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap"
+        rel="stylesheet"
+      />
 
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap" rel="stylesheet"/>
-
-      <div class="row h-100 ">
-
-        <div class="sidebar col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center position-fixed h-100">
-          <div class="img-con mb-4 d-flex flex-column justify-content-center align-items-center">
-            <img src={'thumb.png'} alt="Profile" class="rounded-circle img-fluid" />
-          </div>
-
-          <div className="profile container text-center ">
-            <div className='row justify-content-center'>
-              <div className='col-12 d-flex justify-content-center align-items-center'>
-                <input
-                  type="text"
-                  value={newTodo}
-                  onChange={(e) => setNewTodo(e.target.value)}
-                  placeholder="Enter a new todo"
-                  className="form-control mb-2 me-2 w-75"
-                />
-                <button onClick={addTodo} className="btn mb-2">Add</button>
-              </div>
+      <div class="row h-100">
+        {/* SIDEBAR */}
+        <div class="sidebar col-4 d-flex flex-column justify-content-center align-items-center position-fixed h-100">
+          {/* WRAPPER*/}
+          <div class="col-12 d-flex flex-column justify-content-center align-items-center w-100 h-100">
+            {/* ICON */}
+            <div class="image-con mb-4">
+              <img src="thumb.png" alt="Profile" class="rounded-circle img-fluid" />
             </div>
-
-           {/* <div className='jumbotron jumbotron-fluid'>TO-DO LIST</div>
-          <div>
-            {todos.length === 0 ? (
-              <p>It's windy around here!</p>
-            ) : (
-              <ul>
-                {todos.map((todo, index) => (
-                  <TodoItem
-                    key={index}
-                    todo={todo}
-                    index={index}
-                  />
-                ))}
-              </ul>
-            )}
-          </div>
-*/}
+            <div class="text-center mb-3">
+              <label>Welcome!</label>
+              <p class="courier">What shall we do for today?</p>
+            </div>
+            {/* Input Group */}
+            <div class="input-group mb-3 w-75">
+              <input
+                type="text"
+                value={newTodo}
+                onChange={(e) => setNewTodo(e.target.value)}
+                placeholder="Add a Task"
+                class="form-control border border-2"
+              />
+              <button onClick={addTodo} class="courier add">Add</button>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="main col-md-8 col-lg-9 offset-md-4 offset-lg-3 d-flex flex-column align-items-center">
-          <div className='todo'>TO-DO LIST</div>
-          <div className='main-item'>
-            {todos.length === 0 ? (
-              <p>It's windy around here!</p>
-            ) : (
-              <ul>
-                {todos.map((todo, index) => (
-                  <TodoItem
-                    key={index}
-                    todo={todo}
-                    index={index}
-                    onComplete={handleComplete}
-                    onEdit={handleEdit}
-                    onRemove={handleRemove}
-                  />
-                ))}
-              </ul>
+      {/*MENU AND INPUT*/}
+      <div class="main col-8 offset-4 d-flex flex-column align-items-center text-wrap">
+        <div class="todo fancy-font">TO-DO LIST</div>
+        <div class="main-item text-wrap ">
+          {todos.length === 0 ? (<p>No todos available. Add a todo to get started!</p>) :
+            (<ul>
+              {todos.map((todo, index) =>
+              (
+                <TodoItem
+                  key={index}
+                  todo={todo}
+                  index={index}
+                  onComplete={handleComplete}
+                  onEdit={handleEdit}
+                  onRemove={handleRemove}
+                />
+              ))}
+            </ul>
             )}
-          </div>
         </div>
-
       </div>
     </div>
   );
